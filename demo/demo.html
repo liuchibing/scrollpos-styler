@@ -56,5 +56,15 @@
     </article>
 
     <script src="../scrollPosStyler.js"></script>
+    <script>
+      ScrollPosStyler.init({
+        onAboveCallback: function(element) {
+          alert("Above!");
+        },
+        onBelowCallback: function(element) {
+          alert("Below!");
+        }
+      })
+    </script>
   </body>
 </html>

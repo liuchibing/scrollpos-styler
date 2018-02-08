@@ -36,7 +36,13 @@ var ScrollPosStyler = (function(document, window) {
       classBelow = "sps--blw",
 
       // tag to set custom scroll offset per element
-      offsetTag = "data-sps-offset";
+      offsetTag = "data-sps-offset",
+      
+      // callback before apply style / class to each element when above scroll position
+      onAboveCallback = null,
+      
+      // callback before apply style / class to each element when below scroll position
+      onBelowCallback = null;
 
   /* ====================
    * private funcion to check scroll position
@@ -109,7 +115,20 @@ var ScrollPosStyler = (function(document, window) {
     // iterate over elements
     // for (var elem of elements) {
     for (var i = 0; elementsToUpdate[i]; ++i) { // chrome workaround
+      
       var map = elementsToUpdate[i];
+
+      // call callbacks
+      if (map.addClass == classAbove) {
+        if (onAboveCallback != null) {
+          onAboveCallback(map.element)
+        }
+      }
+      if (map.addClass == classBelow) {
+        if (onBelowCallback != null) {
+          onBelowCallback(map.element)
+        }
+      }
 
       // add style / class to element
       map.element.classList.add(map.addClass);
@@ -129,6 +148,8 @@ var ScrollPosStyler = (function(document, window) {
    *    classAbove (String): Classname added to the elements when the window is scrolled above the defined position. Default is 'sps--abv'.
    *    classBelow (String): Classname added to the elements when the window is scrolled below the defined position. Default is 'sps--blw'.
    *    offsetTag (String): HTML tag used on the element to specify a scrollOffsetY other than the default.
+   *    onAboveCallback (Function): Function with one argument (sender) to be called when the window is scrolled above the defined position.
+   *    onBelowCallback (Function): Function with one argument (sender) to be called when the window is scrolled below the defined position.
    *
    * ==================== */
   var pub = {
@@ -146,6 +167,8 @@ var ScrollPosStyler = (function(document, window) {
         classAbove = options.classAbove || classAbove;
         classBelow = options.classBelow || classBelow;
         offsetTag = options.offsetTag || offsetTag;
+        onAboveCallback = options.onAboveCallback || null;
+        onBelowCallback = options.onBelowCallback || null;
       }
 
       // find elements to update
