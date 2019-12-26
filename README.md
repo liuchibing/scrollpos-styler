@@ -1,5 +1,7 @@
 # ScrollPos-Styler
 
+[![GitHub Issues](https://img.shields.io/github/issues/acch/scrollpos-styler.svg)](https://github.com/acch/scrollpos-styler/issues) [![GitHub Stars](https://img.shields.io/github/stars/acch/scrollpos-styler.svg?label=github%20%E2%98%85)](https://github.com/acch/scrollpos-styler/) [![NPM Downloads](https://img.shields.io/npm/dw/scrollpos-styler.svg?label=npm)](https://www.npmjs.com/package/scrollpos-styler) [![License](https://img.shields.io/github/license/acch/scrollpos-styler.svg)](LICENSE)
+
 Simple JavaScript to add a custom CSS class to an HTML element depending on the window's scroll position. One CSS class is added when scrolling below a certain position, and another one is added when scrolling above that position.
 
 ## Background and Motivation
@@ -61,6 +63,12 @@ If you need to support older browsers then these links may provide valuable info
 - http://www.html5rocks.com/en/tutorials/speed/animations/
 - http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript
 - https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+
+## Examples
+
+The script can be used for more than just styling a static navbar. The following list provides additional usage examples for those seeking some inspiration:
+
+-  [Demo3](http://acch.github.io/scrollpos-styler/demo/demo3.html) shows how to style relative offsets &mdash; thanks to [@mamarmite](https://github.com/mamarmite)
 
 ## Copyright and license
 
